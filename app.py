@@ -988,4 +988,9 @@ if __name__ == "__main__":
         server_name="0.0.0.0",   # Railway necesita escuchar en todas las interfaces
         server_port=PORT,         # Railway inyecta $PORT
         show_error=True,
+        prevent_thread_lock=True, # No bloquea el hilo principal; Railway puede probar el healthcheck
     )
+    # Mantener el proceso vivo
+    import time
+    while True:
+        time.sleep(60)
